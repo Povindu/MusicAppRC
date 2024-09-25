@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, Image, Button, StyleSheet, Pressable } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSelectedSong } from "../redux/slices/songSlice";
@@ -11,6 +11,10 @@ const DetailsScreen = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { selectedSong } = useSelector((state: RootState) => state.songs);
+
+  // useEffect(() => {
+  //   console.log(selectedSong);
+  // }, []);
 
   if (!selectedSong) {
     return (
@@ -43,11 +47,11 @@ const DetailsScreen = () => {
           />
           <View style={styles.textView2}>
             <Text style={styles.text3}> Genre: </Text>
-            <Text style={styles.text2}> </Text>
+            <Text style={styles.text2}> {selectedSong.kind}</Text>
           </View>
           <View style={styles.textView2}>
-            <Text style={styles.text3}> Country: </Text>
-            <Text style={styles.text2}> </Text>
+            <Text style={styles.text3}>Country:</Text>
+            <Text style={styles.text2}>{selectedSong.country} </Text>
           </View>
         </View>
         <Text style={styles.text}>Artist Name: {selectedSong.artistName}</Text>
@@ -57,6 +61,9 @@ const DetailsScreen = () => {
         <Text style={styles.text}>Track Price: {selectedSong.trackPrice}</Text>
         <Text style={styles.text}>
           Release Date: {selectedSong.releaseDate}
+        </Text>
+        <Text style={styles.text}>
+          Description: {selectedSong.longDescription}
         </Text>
       </View>
     </View>
@@ -89,10 +96,12 @@ const styles = StyleSheet.create({
   text: {
     color: "white",
     fontSize: 16,
-    marginTop: 10,
+    marginTop: 15,
   },
   text2: {
     color: "white",
+    marginLeft: 10,
+    fontSize: 14,
   },
   topBar: {
     flex: 0.3,
@@ -116,7 +125,7 @@ const styles = StyleSheet.create({
   text3: {
     color: "black",
     width: 100,
-    fontSize: 12,
+    fontSize: 14,
     marginTop: 10,
     marginLeft: 10,
   },

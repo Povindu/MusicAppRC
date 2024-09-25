@@ -18,7 +18,6 @@ const HomeScreen = () => {
   const dispatch = useDispatch();
   const { songList } = useSelector((state: RootState) => state.songs);
   const router = useRouter();
-
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredSongs, setFilteredSongs] = useState(songList);
 
@@ -41,6 +40,7 @@ const HomeScreen = () => {
   }, [searchTerm, songList]);
 
   const handlePress = (song: any) => {
+    console.log(song);
     dispatch(setSelectedSong(song));
     router.push("/details");
   };

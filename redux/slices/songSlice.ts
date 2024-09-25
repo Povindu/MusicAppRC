@@ -8,6 +8,11 @@ interface Song {
   artworkUrl100: string;
   trackPrice: number;
   releaseDate: string;
+  genre: string;
+  country: string;
+  description: string;
+  kind: string;
+  longDescription: string;
 }
 
 interface SongState {
