@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     alignSelf: "center",
-    marginRight : 10,
+    marginRight: 10,
   },
   googleLogo: {
     marginLeft: 10,

@@ -46,8 +46,8 @@ const DetailsScreen = () => {
             <Text style={styles.text2}> </Text>
           </View>
           <View style={styles.textView2}>
-            <Text style={styles.text3}> Country:  </Text>
-            <Text style={styles.text2}>  </Text>
+            <Text style={styles.text3}> Country: </Text>
+            <Text style={styles.text2}> </Text>
           </View>
         </View>
         <Text style={styles.text}>Artist Name: {selectedSong.artistName}</Text>
