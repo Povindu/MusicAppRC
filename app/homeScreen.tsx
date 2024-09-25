@@ -47,7 +47,6 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Search Bar */}
       <TextInput
         style={styles.searchBar}
         placeholder="Search songs or artists"
@@ -56,7 +55,6 @@ const HomeScreen = () => {
         placeholderTextColor={"white"}
       />
 
-      {/* Song List */}
       <FlatList
         data={filteredSongs}
         keyExtractor={(item) => item.trackId.toString()}

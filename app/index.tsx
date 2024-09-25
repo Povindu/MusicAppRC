@@ -4,7 +4,6 @@ import {
   Text,
   Image,
   TextInput,
-  Button,
   StyleSheet,
   Pressable,
 } from "react-native";
@@ -18,13 +17,13 @@ export default function LoginScreen() {
   const router = useRouter();
 
   const handleLogin = () => {
-    // Navigate to Home
     router.push("/homeScreen");
   };
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <View style={styles.container}>
       <Image
@@ -44,7 +43,9 @@ export default function LoginScreen() {
         <TextInput
           style={styles.inputPass}
           placeholder="Password"
-          secureTextEntry
+          {...(showPassword
+            ? { secureTextEntry: false }
+            : { secureTextEntry: true })}
           value={password}
           onChangeText={setPassword}
           placeholderTextColor="white"
